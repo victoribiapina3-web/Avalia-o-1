@@ -1,1 +1,54 @@
 
+import java.util.Scanner;
+
+public class ConversorTemperatura {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("--- Conversor de Temperaturas ---");
+        System.out.println("Escolha a escala da temperatura digitada:");
+        System.out.println("1 - Celsius (°C)");
+        System.out.println("2 - Fahrenheit (°F)");
+        System.out.println("3 - Kelvin (K)");
+        System.out.print("Opção: ");
+        int opcao = input.nextInt();
+
+        System.out.print("Digite o valor da temperatura: ");
+        double temperatura = input.nextDouble();
+
+        System.out.println("\n--- Resultados da Conversão ---");
+
+        switch (opcao) {
+
+            case 1: // Celsius
+                double f = (temperatura * 9 / 5) + 32;
+                double k = temperatura + 273.15;
+                System.out.println("Temperatura em Celsius: " + temperatura + " °C");
+                System.out.println("Temperatura em Fahrenheit: " + f + " °F");
+                System.out.println("Temperatura em Kelvin: " + k + " K");
+                break;
+
+            case 2: // Fahrenheit
+                double cFromF = (temperatura - 32) * 5 / 9;
+                double kFromF = cFromF + 273.15;
+                System.out.println("Temperatura em Fahrenheit: " + temperatura + " °F");
+                System.out.println("Temperatura em Celsius: " + cFromF + " °C");
+                System.out.println("Temperatura em Kelvin: " + kFromF + " K");
+                break;
+
+            case 3: // Kelvin
+                double cFromK = temperatura - 273.15;
+                double fFromK = (cFromK * 9 / 5) + 32;
+                System.out.println("Temperatura em Kelvin: " + temperatura + " K");
+                System.out.println("Temperatura em Celsius: " + cFromK + " °C");
+                System.out.println("Temperatura em Fahrenheit: " + fFromK + " °F");
+                break;
+
+            default:
+                System.out.println("Opção inválida! Execute novamente.");
+        }
+
+        input.close();
+    }
+}
